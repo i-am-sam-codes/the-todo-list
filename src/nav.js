@@ -7,7 +7,7 @@ export default function createNav() {
   const navBar = document.createElement("div");
   navBar.textContent = "my todo list";
   navBar.style.fontSize = "30px";
-  navBar.style.backgroundColor = "blue";
+  navBar.style.backgroundColor = "#3d348b";
   navBar.style.padding = "20px";
 
   navContainer.appendChild(navBar);
