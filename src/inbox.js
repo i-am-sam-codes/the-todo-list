@@ -1,7 +1,9 @@
 export default function loadInbox() {
   const contentDiv = document.getElementById("home");
+  const pageDiv = document.getElementById("page");
 
   const inboxContainer = document.createElement("div");
+  inboxContainer.setAttribute("id", "page");
   inboxContainer.classList.add("card");
   inboxContainer.style.width = "80%";
   inboxContainer.style.backgroundColor = "#f7b801";
@@ -42,6 +44,7 @@ export default function loadInbox() {
   inboxContainer.appendChild(taskList);
   inboxContainer.appendChild(addTaskForm);
 
+  if (pageDiv) contentDiv.removeChild(pageDiv);
   contentDiv.appendChild(inboxContainer);
 }
 
