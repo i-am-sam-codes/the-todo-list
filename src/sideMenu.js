@@ -17,6 +17,7 @@ export default function createMenu() {
   buttonContainer.style.flexDirection = "column";
   buttonContainer.style.gap = "10px";
   buttonContainer.style.padding = "10px";
+  buttonContainer.style.marginTop = "20px";
 
   const inboxButton = document.createElement("button");
   inboxButton.setAttribute("id", "inbox");
@@ -33,9 +34,25 @@ export default function createMenu() {
   weekButton.textContent = "This week";
   weekButton.addEventListener("click", loadThisWeek);
 
+  const menuTwo = document.createElement("div");
+  menuTwo.textContent = "PROJECTS";
+  menuTwo.style.fontWeight = "bold";
+  menuTwo.style.fontSize = "20px";
+  menuTwo.style.display = "flex";
+  menuTwo.style.flexDirection = "column";
+  menuTwo.style.gap = "10px";
+  menuTwo.style.padding = "10px";
+
+  const menuTwoButton = document.createElement("button");
+  menuTwoButton.setAttribute("id", "add-project");
+  menuTwoButton.textContent = "+ add project";
+
+  menuTwo.appendChild(menuTwoButton);
+
   buttonContainer.appendChild(inboxButton);
   buttonContainer.appendChild(todayButton);
   buttonContainer.appendChild(weekButton);
+  buttonContainer.appendChild(menuTwo);
 
   menu.appendChild(buttonContainer);
   contentDiv.appendChild(menu);
