@@ -13,6 +13,10 @@ export default function createMenu() {
   menu.style.float = "left";
 
   const buttonContainer = document.createElement("div");
+  buttonContainer.style.display = "flex";
+  buttonContainer.style.flexDirection = "column";
+  buttonContainer.style.gap = "10px";
+  buttonContainer.style.padding = "10px";
 
   const inboxButton = document.createElement("button");
   inboxButton.setAttribute("id", "inbox");
