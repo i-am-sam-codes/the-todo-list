@@ -7,9 +7,8 @@ export default function createMenu() {
 
   const menu = document.createElement("div");
   menu.style.backgroundColor = "#bbbcf6";
-  menu.style.width = "258px";
-  menu.style.height = "800px";
-  menu.style.margin = "2px 2px 2px 0px";
+  menu.style.width = "20%";
+  menu.style.height = "300px";
   menu.style.float = "left";
 
   const buttonContainer = document.createElement("div");
@@ -21,7 +20,7 @@ export default function createMenu() {
 
   const inboxButton = document.createElement("button");
   inboxButton.setAttribute("id", "inbox");
-  inboxButton.textContent = "Inbox";
+  inboxButton.textContent = "All Tasks";
   inboxButton.addEventListener("click", loadInbox);
 
   const todayButton = document.createElement("button");

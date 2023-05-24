@@ -8,7 +8,6 @@ export default function createHomePage() {
   const homeContainer = document.createElement("div");
   homeContainer.setAttribute("id", "home");
   homeContainer.style.backgroundColor = "#7678ed";
-  homeContainer.style.padding = "40%";
 
   contentDiv.appendChild(homeContainer);
 }

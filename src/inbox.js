@@ -5,12 +5,12 @@ export default function loadInbox() {
   const inboxContainer = document.createElement("div");
   inboxContainer.setAttribute("id", "page");
   inboxContainer.classList.add("card");
-  inboxContainer.style.width = "80%";
+  inboxContainer.style.width = "78%";
   inboxContainer.style.backgroundColor = "#f7b801";
   inboxContainer.style.float = "right";
 
   const taskListTitle = document.createElement("h2");
-  taskListTitle.textContent = "Inbox";
+  taskListTitle.textContent = "All Tasks";
 
   const taskList = document.createElement("ul");
   taskList.style.listStyleType = "none";
