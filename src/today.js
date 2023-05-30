@@ -1,1 +1,4 @@
-export default function loadToday() {}
+import loadInbox from "./inbox";
+export default function loadToday() {
+  loadInbox();
+}

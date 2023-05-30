@@ -1,3 +1,5 @@
+import createMenu from "./sideMenu";
+
 export default function loadInbox() {
   const contentDiv = document.getElementById("home");
   const pageDiv = document.getElementById("page");
@@ -8,9 +10,6 @@ export default function loadInbox() {
   inboxContainer.style.width = "78%";
   inboxContainer.style.backgroundColor = "#f7b801";
   inboxContainer.style.float = "right";
-
-  const taskListTitle = document.createElement("h2");
-  taskListTitle.textContent = "All Tasks";
 
   const taskList = document.createElement("ul");
   taskList.style.listStyleType = "none";
@@ -47,6 +46,8 @@ export default function loadInbox() {
   if (pageDiv) contentDiv.removeChild(pageDiv);
   contentDiv.appendChild(inboxContainer);
 }
+
+export let taskListTitle = document.createElement("h2");
 
 function createTaskItem(taskText) {
   const taskItem = document.createElement("li");

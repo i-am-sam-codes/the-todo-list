@@ -1,1 +1,4 @@
-export default function loadThisWeek() {}
+import loadInbox from "./inbox";
+export default function loadThisWeek() {
+  loadInbox();
+}

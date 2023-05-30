@@ -1,6 +1,7 @@
 import loadInbox from "./inbox";
 import loadThisWeek from "./thisWeek";
 import loadToday from "./today";
+import { taskListTitle } from "./inbox";
 
 export default function createMenu() {
   const contentDiv = document.getElementById("content");
@@ -20,18 +21,30 @@ export default function createMenu() {
 
   const inboxButton = document.createElement("button");
   inboxButton.setAttribute("id", "inbox");
+  inboxButton.classList.add("btn");
   inboxButton.textContent = "All Tasks";
   inboxButton.addEventListener("click", loadInbox);
+  inboxButton.addEventListener("click", () => {
+    taskListTitle.textContent = inboxButton.textContent;
+  });
 
   const todayButton = document.createElement("button");
   todayButton.setAttribute("id", "today");
+  todayButton.classList.add("btn");
   todayButton.textContent = "Today";
   todayButton.addEventListener("click", loadToday);
+  todayButton.addEventListener("click", () => {
+    taskListTitle.textContent = todayButton.textContent;
+  });
 
   const weekButton = document.createElement("button");
   weekButton.setAttribute("id", "week");
+  weekButton.classList.add("btn");
   weekButton.textContent = "This week";
   weekButton.addEventListener("click", loadThisWeek);
+  weekButton.addEventListener("click", () => {
+    taskListTitle.textContent = weekButton.textContent;
+  });
 
   const menuTwo = document.createElement("div");
   menuTwo.textContent = "PROJECTS";
