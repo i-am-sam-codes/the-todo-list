@@ -1,4 +1,5 @@
-import createMenu from "./sideMenu";
+import { format, parseISO } from "date-fns";
+import createTaskItem from "./taskUtils";
 
 export default function loadInbox() {
   const contentDiv = document.getElementById("home");
@@ -21,6 +22,11 @@ export default function loadInbox() {
   taskInput.placeholder = "Enter new task";
   taskInput.style.marginRight = "10px";
 
+  const dueDateInput = document.createElement("input");
+  dueDateInput.type = "date";
+  dueDateInput.placeholder = "Due date";
+  dueDateInput.style.marginRight = "10px";
+
   const addButton = document.createElement("button");
   addButton.style.float = "right";
   addButton.type = "submit";
@@ -29,14 +35,18 @@ export default function loadInbox() {
   addTaskForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const taskText = taskInput.value.trim();
+    const dueDate = dueDateInput.value;
+
     if (taskText !== "") {
-      const taskItem = createTaskItem(taskText);
-      taskList.appendChild(taskItem);
+      const taskItem = createTaskItem(taskText, dueDate);
+      taskList.appendChild(taskItem, dueDateInput);
       taskInput.value = "";
+      dueDateInput.value = "";
     }
   });
 
   addTaskForm.appendChild(taskInput);
+  addTaskForm.appendChild(dueDateInput);
   addTaskForm.appendChild(addButton);
 
   inboxContainer.appendChild(taskListTitle);
@@ -48,35 +58,3 @@ export default function loadInbox() {
 }
 
 export let taskListTitle = document.createElement("h2");
-
-function createTaskItem(taskText) {
-  const taskItem = document.createElement("li");
-  taskItem.classList.add("task-item");
-
-  const taskCheckbox = document.createElement("input");
-  taskCheckbox.type = "checkbox";
-  taskCheckbox.addEventListener("change", () => {
-    if (taskCheckbox.checked) {
-      taskItem.classList.add("completed");
-    } else {
-      taskItem.classList.remove("completed");
-    }
-  });
-
-  const taskLabel = document.createElement("span");
-  taskLabel.textContent = taskText;
-
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("delete-button");
-  deleteButton.style.margin = "30px";
-  deleteButton.textContent = "done";
-  deleteButton.addEventListener("click", () => {
-    taskItem.remove();
-  });
-
-  taskItem.appendChild(taskCheckbox);
-  taskItem.appendChild(taskLabel);
-  taskItem.appendChild(deleteButton);
-
-  return taskItem;
-}
